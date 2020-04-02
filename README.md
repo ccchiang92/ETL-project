@@ -1,9 +1,10 @@
-# <Project Name Here>
+# {Project Name Here}
 Data base ETL project for UC Berkeley Extension Data Analytics Bootcamp
 ## Sumary
-<place holder>
+{place holder}
 Temparary!!! Report page link !!!!
-    https://docs.google.com/document/d/19xXDziHLFC-RZnyse5aBP2GcZgLMf9txcXBHXYI5TFI/edit
+<br/>
+https://docs.google.com/document/d/19xXDziHLFC-RZnyse5aBP2GcZgLMf9txcXBHXYI5TFI/edit
 <br/>
 <br/>
 <br/>
