@@ -34,7 +34,7 @@ start_date = dt.date.fromisoformat(last_data) + dt.timedelta(days=1)
 # grab data up to yesterday to accommodate timezones
 yesterday = dt.date.today() - dt.timedelta(days=1)
 no_update =False
-if start_date<=yesterday:
+if start_date>=yesterday:
     no_update =True
     print('No new data to update')
 #     exit()
@@ -258,7 +258,7 @@ auto_table_list.append(event_df.sort_values('Date'))
 # Save to dashboard folder
 for i in range(len(auto_table_list)-1):
     temp = auto_table_list[i].dropna(0)
-    temp.to_csv('./dashboard/dist/data'+country_strings[i]+'_Auto.csv', index=False)
+    temp.to_csv('./dashboard/dist/data/'+country_strings[i]+'_Auto.csv', index=False)
 event_df.sort_values('Date').to_csv('./dashboard/dist/'+'Events'+'_Auto.csv')
 
 # Rewrite sqlite database if there are new data
