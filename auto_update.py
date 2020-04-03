@@ -33,8 +33,11 @@ last_data = tot_df['Date'].max()
 start_date = dt.date.fromisoformat(last_data) + dt.timedelta(days=1)
 # grab data up to yesterday to accommodate timezones
 yesterday = dt.date.today() - dt.timedelta(days=1)
+no_update =False
 if start_date<=yesterday:
-    exit()
+    no_update =True
+    print('No new data to update')
+#     exit()
 
 
 # Set up naming strings
@@ -190,6 +193,24 @@ def combine_data(case_data, market_data):
     output.append(tot_df)
     return output
 
+
+# auto update sqlite database
+def sqlupdate(data_table_list):
+    from sqlalchemy import create_engine, Column
+    from sqlalchemy.types import Float, String, Date, BigInteger
+    engine = create_engine("sqlite:///./sqlite_database/Auto_Updated/Covid19_VS_Market.sqlite", echo=False)
+    conn = engine.connect()
+    # define data types
+    table_type_country={'Date':Date ,'Country/Region':String,'Confirmed cases':BigInteger,'Deaths':BigInteger,'Index Price':Float,'Index Daily % Change':Float}
+    table_type_tot={'Date':Date ,'Country/Region':String,'Confirmed cases':BigInteger,'Deaths':BigInteger}
+    table_type_event={'Date':Date ,'Major Event':String}
+    # convert dataframe into sql tables
+    for i in range(4):
+        data_table_list[i].to_sql(country_strings[i] + '_data', conn,index = False, dtype =table_type_country,if_exists='replace')
+    data_table_list[4].to_sql('Total_table', conn,index = False, dtype =table_type_tot,if_exists='replace')
+    data_table_list[5].to_sql('Event_table', conn,index = False, dtype =table_type_event,if_exists='replace')
+
+
 # Grab old csv files to appended new data
 old_tables = []
 for country in country_strings:
@@ -215,41 +236,34 @@ if len(case_df)>0 and len(index_dfs)>0:
     final_tabs = combine_data(case_df, index_dfs)
 else:
     print('No new data to update')
-    exit()
-
+    no_update = True
 
 # save csv files
-auto_table_list=[]
-for i in range(len(final_tabs)):
-    update_date = old_tables[i]['Date'].max()
-    try:
-        new_and_old = old_tables[i].append(final_tabs[i].loc[final_tabs[i]['Date']>update_date])
-        new_and_old.sort_values('Date').to_csv('./cleaned_data/Auto_Updated/'+country_strings[i]+'_Auto.csv', index=False)
-        auto_table_list.append(new_and_old.sort_values('Date'))
-    except :
-        print('No new data to append')
-        auto_table_list.append(old_tables[i].sort_values('Date'))
+if no_update:
+    auto_table_list = old_tables
+else:
+    auto_table_list=[]
+    for i in range(len(final_tabs)):
+        update_date = old_tables[i]['Date'].max()
+        try:
+            new_and_old = old_tables[i].append(final_tabs[i].loc[final_tabs[i]['Date']>update_date])
+            new_and_old.sort_values('Date').to_csv('./cleaned_data/Auto_Updated/'+country_strings[i]+'_Auto.csv', index=False)
+            auto_table_list.append(new_and_old.sort_values('Date'))
+        except :
+            print('No new data to append')
+            auto_table_list.append(old_tables[i].sort_values('Date'))
 event_df.sort_values('Date').to_csv('./cleaned_data/Auto_Updated/'+'Events'+'_Auto.csv')
 auto_table_list.append(event_df.sort_values('Date'))
 
-# auto update sqlite database
-def sqlupdate(data_table_list):
-    from sqlalchemy import create_engine, Column
-    from sqlalchemy.types import Float, String, Date, BigInteger
-    engine = create_engine("sqlite:///./sqlite_database/Auto_Updated/Covid19_VS_Market.sqlite", echo=False)
-    conn = engine.connect()
-    # define data types
-    table_type_country={'Date':Date ,'Country/Region':String,'Confirmed cases':BigInteger,'Deaths':BigInteger,'Index Price':Float,'Index Daily % Change':Float}
-    table_type_tot={'Date':Date ,'Country/Region':String,'Confirmed cases':BigInteger,'Deaths':BigInteger}
-    table_type_event={'Date':Date ,'Major Event':String}
-    # convert dataframe into sql tables
-    for i in range(4):
-        data_table_list[i].to_sql(country_strings[i] + '_data', conn,index = False, dtype =table_type_country,if_exists='replace')
-    data_table_list[4].to_sql('Total_table', conn,index = False, dtype =table_type_tot,if_exists='replace')
-    data_table_list[5].to_sql('Event_table', conn,index = False, dtype =table_type_event,if_exists='replace')
+# Save to dashboard folder
+for i in range(len(auto_table_list)-1):
+    temp = auto_table_list[i].dropna(0)
+    temp.to_csv('./dashboard/dist/data'+country_strings[i]+'_Auto.csv', index=False)
+event_df.sort_values('Date').to_csv('./dashboard/dist/'+'Events'+'_Auto.csv')
 
-
-sqlupdate(auto_table_list)
+# Rewrite sqlite database if there are new data
+if not no_update:
+    sqlupdate(auto_table_list)
 
 
 
