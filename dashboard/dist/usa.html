@@ -10,6 +10,9 @@
         <link href="css/styles.css" rel="stylesheet" />
         <link href="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css" rel="stylesheet" crossorigin="anonymous" />
         <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/js/all.min.js" crossorigin="anonymous"></script>
+        <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     </head>
     <body class="sb-nav-fixed">
         <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
@@ -71,543 +74,8 @@
                             <div class="card-header"><i class="fas fa-table mr-1"></i>DataTable</div>
                             <div class="card-body">
                                 <div class="table-responsive">
-                                    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                                        <thead><tr><th title="Field #1">Date</th>
-                                            <th title="Field #2">Country/Region</th>
-                                            <th title="Field #3">Confirmed cases</th>
-                                            <th title="Field #4">Deaths</th>
-                                            <th title="Field #5">Index Price</th>
-                                            <th title="Field #6">Index Daily % Change</th>
-                                            </tr></thead>
-                                            <tbody><tr>
-                                            <td>2020-03-27</td>
-                                            <td>US</td>
-                                            <td align="right">101657.0</td>
-                                            <td align="right">1581.0</td>
-                                            <td align="right">21636.78</td>
-                                            <td align="right">-4.06</td>
-                                            </tr>
-                                            <tr>
-                                            <td>2020-03-26</td>
-                                            <td>US</td>
-                                            <td align="right">83836.0</td>
-                                            <td align="right">1209.0</td>
-                                            <td align="right">22552.17</td>
-                                            <td align="right">6.38</td>
-                                            </tr>
-                                            <tr>
-                                            <td>2020-03-25</td>
-                                            <td>US</td>
-                                            <td align="right">65778.0</td>
-                                            <td align="right">942.0</td>
-                                            <td align="right">21200.55</td>
-                                            <td align="right">2.39</td>
-                                            </tr>
-                                            <tr>
-                                            <td>2020-03-24</td>
-                                            <td>US</td>
-                                            <td align="right">53740.0</td>
-                                            <td align="right">706.0</td>
-                                            <td align="right">20704.91</td>
-                                            <td align="right">11.37</td>
-                                            </tr>
-                                            <tr>
-                                            <td>2020-03-23</td>
-                                            <td>US</td>
-                                            <td align="right">43667.0</td>
-                                            <td align="right">552.0</td>
-                                            <td align="right">18591.93</td>
-                                            <td align="right">-3.04</td>
-                                            </tr>
-                                            <tr>
-                                            <td>2020-03-20</td>
-                                            <td>US</td>
-                                            <td align="right">19101.0</td>
-                                            <td align="right">244.0</td>
-                                            <td align="right">19173.98</td>
-                                            <td align="right">-4.55</td>
-                                            </tr>
-                                            <tr>
-                                            <td>2020-03-19</td>
-                                            <td>US</td>
-                                            <td align="right">13680.0</td>
-                                            <td align="right">200.0</td>
-                                            <td align="right">20087.19</td>
-                                            <td align="right">0.95</td>
-                                            </tr>
-                                            <tr>
-                                            <td>2020-03-18</td>
-                                            <td>US</td>
-                                            <td align="right">7786.0</td>
-                                            <td align="right">118.0</td>
-                                            <td align="right">19898.92</td>
-                                            <td align="right">-6.3</td>
-                                            </tr>
-                                            <tr>
-                                            <td>2020-03-17</td>
-                                            <td>US</td>
-                                            <td align="right">6421.0</td>
-                                            <td align="right">108.0</td>
-                                            <td align="right">21237.38</td>
-                                            <td align="right">5.2</td>
-                                            </tr>
-                                            <tr>
-                                            <td>2020-03-16</td>
-                                            <td>US</td>
-                                            <td align="right">4632.0</td>
-                                            <td align="right">85.0</td>
-                                            <td align="right">20188.52</td>
-                                            <td align="right">-12.93</td>
-                                            </tr>
-                                            <tr>
-                                            <td>2020-03-13</td>
-                                            <td>US</td>
-                                            <td align="right">2179.0</td>
-                                            <td align="right">47.0</td>
-                                            <td align="right">23185.62</td>
-                                            <td align="right">9.36</td>
-                                            </tr>
-                                            <tr>
-                                            <td>2020-03-12</td>
-                                            <td>US</td>
-                                            <td align="right">1663.0</td>
-                                            <td align="right">40.0</td>
-                                            <td align="right">21200.62</td>
-                                            <td align="right">-9.99</td>
-                                            </tr>
-                                            <tr>
-                                            <td>2020-03-11</td>
-                                            <td>US</td>
-                                            <td align="right">1281.0</td>
-                                            <td align="right">36.0</td>
-                                            <td align="right">23553.22</td>
-                                            <td align="right">-5.86</td>
-                                            </tr>
-                                            <tr>
-                                            <td>2020-03-10</td>
-                                            <td>US</td>
-                                            <td align="right">959.0</td>
-                                            <td align="right">28.0</td>
-                                            <td align="right">25018.16</td>
-                                            <td align="right">4.89</td>
-                                            </tr>
-                                            <tr>
-                                            <td>2020-03-09</td>
-                                            <td>US</td>
-                                            <td align="right">605.0</td>
-                                            <td align="right">22.0</td>
-                                            <td align="right">23851.02</td>
-                                            <td align="right">-7.79</td>
-                                            </tr>
-                                            <tr>
-                                            <td>2020-03-06</td>
-                                            <td>US</td>
-                                            <td align="right">278.0</td>
-                                            <td align="right">14.0</td>
-                                            <td align="right">25864.78</td>
-                                            <td align="right">-0.98</td>
-                                            </tr>
-                                            <tr>
-                                            <td>2020-03-05</td>
-                                            <td>US</td>
-                                            <td align="right">221.0</td>
-                                            <td align="right">12.0</td>
-                                            <td align="right">26121.28</td>
-                                            <td align="right">-3.58</td>
-                                            </tr>
-                                            <tr>
-                                            <td>2020-03-04</td>
-                                            <td>US</td>
-                                            <td align="right">153.0</td>
-                                            <td align="right">11.0</td>
-                                            <td align="right">27090.86</td>
-                                            <td align="right">4.53</td>
-                                            </tr>
-                                            <tr>
-                                            <td>2020-03-03</td>
-                                            <td>US</td>
-                                            <td align="right">122.0</td>
-                                            <td align="right">7.0</td>
-                                            <td align="right">25917.41</td>
-                                            <td align="right">-2.94</td>
-                                            </tr>
-                                            <tr>
-                                            <td>2020-03-02</td>
-                                            <td>US</td>
-                                            <td align="right">101.0</td>
-                                            <td align="right">6.0</td>
-                                            <td align="right">26703.32</td>
-                                            <td align="right">5.09</td>
-                                            </tr>
-                                            <tr>
-                                            <td>2020-02-28</td>
-                                            <td>US</td>
-                                            <td align="right">62.0</td>
-                                            <td align="right">0.0</td>
-                                            <td align="right">25409.36</td>
-                                            <td align="right">-1.39</td>
-                                            </tr>
-                                            <tr>
-                                            <td>2020-02-27</td>
-                                            <td>US</td>
-                                            <td align="right">60.0</td>
-                                            <td align="right">0.0</td>
-                                            <td align="right">25766.64</td>
-                                            <td align="right">-4.42</td>
-                                            </tr>
-                                            <tr>
-                                            <td>2020-02-26</td>
-                                            <td>US</td>
-                                            <td align="right">59.0</td>
-                                            <td align="right">0.0</td>
-                                            <td align="right">26957.59</td>
-                                            <td align="right">-0.46</td>
-                                            </tr>
-                                            <tr>
-                                            <td>2020-02-25</td>
-                                            <td>US</td>
-                                            <td align="right">53.0</td>
-                                            <td align="right">0.0</td>
-                                            <td align="right">27081.36</td>
-                                            <td align="right">-3.15</td>
-                                            </tr>
-                                            <tr>
-                                            <td>2020-02-24</td>
-                                            <td>US</td>
-                                            <td align="right">53.0</td>
-                                            <td align="right">0.0</td>
-                                            <td align="right">27960.8</td>
-                                            <td align="right">-3.56</td>
-                                            </tr>
-                                            <tr>
-                                            <td>2020-02-21</td>
-                                            <td>US</td>
-                                            <td align="right">35.0</td>
-                                            <td align="right">0.0</td>
-                                            <td align="right">28992.41</td>
-                                            <td align="right">-0.78</td>
-                                            </tr>
-                                            <tr>
-                                            <td>2020-02-20</td>
-                                            <td>US</td>
-                                            <td align="right">15.0</td>
-                                            <td align="right">0.0</td>
-                                            <td align="right">29219.98</td>
-                                            <td align="right">-0.44</td>
-                                            </tr>
-                                            <tr>
-                                            <td>2020-02-19</td>
-                                            <td>US</td>
-                                            <td align="right">15.0</td>
-                                            <td align="right">0.0</td>
-                                            <td align="right">29348.03</td>
-                                            <td align="right">0.4</td>
-                                            </tr>
-                                            <tr>
-                                            <td>2020-02-18</td>
-                                            <td>US</td>
-                                            <td align="right">15.0</td>
-                                            <td align="right">0.0</td>
-                                            <td align="right">29232.19</td>
-                                            <td align="right">-0.56</td>
-                                            </tr>
-                                            <tr>
-                                            <td>2020-02-14</td>
-                                            <td>US</td>
-                                            <td align="right">15.0</td>
-                                            <td align="right">0.0</td>
-                                            <td align="right">29398.08</td>
-                                            <td align="right">-0.09</td>
-                                            </tr>
-                                            <tr>
-                                            <td>2020-02-13</td>
-                                            <td>US</td>
-                                            <td align="right">15.0</td>
-                                            <td align="right">0.0</td>
-                                            <td align="right">29423.31</td>
-                                            <td align="right">-0.43</td>
-                                            </tr>
-                                            <tr>
-                                            <td>2020-02-12</td>
-                                            <td>US</td>
-                                            <td align="right">13.0</td>
-                                            <td align="right">0.0</td>
-                                            <td align="right">29551.42</td>
-                                            <td align="right">0.94</td>
-                                            </tr>
-                                            <tr>
-                                            <td>2020-02-11</td>
-                                            <td>US</td>
-                                            <td align="right">13.0</td>
-                                            <td align="right">0.0</td>
-                                            <td align="right">29276.34</td>
-                                            <td align="right">-0.0</td>
-                                            </tr>
-                                            <tr>
-                                            <td>2020-02-10</td>
-                                            <td>US</td>
-                                            <td align="right">12.0</td>
-                                            <td align="right">0.0</td>
-                                            <td align="right">29276.82</td>
-                                            <td align="right">0.6</td>
-                                            </tr>
-                                            <tr>
-                                            <td>2020-02-07</td>
-                                            <td>US</td>
-                                            <td align="right">12.0</td>
-                                            <td align="right">0.0</td>
-                                            <td align="right">29102.51</td>
-                                            <td align="right">-0.94</td>
-                                            </tr>
-                                            <tr>
-                                            <td>2020-02-06</td>
-                                            <td>US</td>
-                                            <td align="right">12.0</td>
-                                            <td align="right">0.0</td>
-                                            <td align="right">29379.77</td>
-                                            <td align="right">0.3</td>
-                                            </tr>
-                                            <tr>
-                                            <td>2020-02-05</td>
-                                            <td>US</td>
-                                            <td align="right">12.0</td>
-                                            <td align="right">0.0</td>
-                                            <td align="right">29290.85</td>
-                                            <td align="right">1.68</td>
-                                            </tr>
-                                            <tr>
-                                            <td>2020-02-04</td>
-                                            <td>US</td>
-                                            <td align="right">11.0</td>
-                                            <td align="right">0.0</td>
-                                            <td align="right">28807.63</td>
-                                            <td align="right">1.44</td>
-                                            </tr>
-                                            <tr>
-                                            <td>2020-02-03</td>
-                                            <td>US</td>
-                                            <td align="right">11.0</td>
-                                            <td align="right">0.0</td>
-                                            <td align="right">28399.81</td>
-                                            <td align="right">0.51</td>
-                                            </tr>
-                                            <tr>
-                                            <td>2020-01-31</td>
-                                            <td>US</td>
-                                            <td align="right">6.0</td>
-                                            <td align="right">0.0</td>
-                                            <td align="right">28256.03</td>
-                                            <td align="right">-2.09</td>
-                                            </tr>
-                                            <tr>
-                                            <td>2020-01-30</td>
-                                            <td>US</td>
-                                            <td align="right">5.0</td>
-                                            <td align="right">0.0</td>
-                                            <td align="right">28859.44</td>
-                                            <td align="right">0.43</td>
-                                            </tr>
-                                            <tr>
-                                            <td>2020-01-29</td>
-                                            <td>US</td>
-                                            <td align="right">5.0</td>
-                                            <td align="right">0.0</td>
-                                            <td align="right">28734.45</td>
-                                            <td align="right">0.04</td>
-                                            </tr>
-                                            <tr>
-                                            <td>2020-01-28</td>
-                                            <td>US</td>
-                                            <td align="right">5.0</td>
-                                            <td align="right">0.0</td>
-                                            <td align="right">28722.85</td>
-                                            <td align="right">0.66</td>
-                                            </tr>
-                                            <tr>
-                                            <td>2020-01-27</td>
-                                            <td>US</td>
-                                            <td align="right">5.0</td>
-                                            <td align="right">0.0</td>
-                                            <td align="right">28535.8</td>
-                                            <td align="right">-1.57</td>
-                                            </tr>
-                                            <tr>
-                                            <td>2020-01-24</td>
-                                            <td>US</td>
-                                            <td align="right">2.0</td>
-                                            <td align="right">0.0</td>
-                                            <td align="right">28989.73</td>
-                                            <td align="right">-0.58</td>
-                                            </tr>
-                                            <tr>
-                                            <td>2020-01-23</td>
-                                            <td>US</td>
-                                            <td align="right">1.0</td>
-                                            <td align="right">0.0</td>
-                                            <td align="right">29160.09</td>
-                                            <td align="right">-0.09</td>
-                                            </tr>
-                                            <tr>
-                                            <td>2020-01-22</td>
-                                            <td>US</td>
-                                            <td align="right">1.0</td>
-                                            <td align="right">0.0</td>
-                                            <td align="right">29186.27</td>
-                                            <td align="right">-0.03</td>
-                                            </tr>
-                                            <tr>
-                                            <td>2020-01-02</td>
-                                            <td>US</td>
-                                            <td align="right">0.0</td>
-                                            <td align="right">0.0</td>
-                                            <td align="right">28868.8</td>
-                                            <td align="right">1.16</td>
-                                            </tr>
-                                            <tr>
-                                            <td>2020-01-03</td>
-                                            <td>US</td>
-                                            <td align="right">0.0</td>
-                                            <td align="right">0.0</td>
-                                            <td align="right">28634.88</td>
-                                            <td align="right">-0.81</td>
-                                            </tr>
-                                            <tr>
-                                            <td>2020-01-06</td>
-                                            <td>US</td>
-                                            <td align="right">0.0</td>
-                                            <td align="right">0.0</td>
-                                            <td align="right">28703.38</td>
-                                            <td align="right">0.24</td>
-                                            </tr>
-                                            <tr>
-                                            <td>2020-01-07</td>
-                                            <td>US</td>
-                                            <td align="right">0.0</td>
-                                            <td align="right">0.0</td>
-                                            <td align="right">28583.68</td>
-                                            <td align="right">-0.42</td>
-                                            </tr>
-                                            <tr>
-                                            <td>2020-01-08</td>
-                                            <td>US</td>
-                                            <td align="right">0.0</td>
-                                            <td align="right">0.0</td>
-                                            <td align="right">28745.09</td>
-                                            <td align="right">0.56</td>
-                                            </tr>
-                                            <tr>
-                                            <td>2020-01-09</td>
-                                            <td>US</td>
-                                            <td align="right">0.0</td>
-                                            <td align="right">0.0</td>
-                                            <td align="right">28956.9</td>
-                                            <td align="right">0.74</td>
-                                            </tr>
-                                            <tr>
-                                            <td>2020-01-10</td>
-                                            <td>US</td>
-                                            <td align="right">0.0</td>
-                                            <td align="right">0.0</td>
-                                            <td align="right">28823.77</td>
-                                            <td align="right">-0.46</td>
-                                            </tr>
-                                            <tr>
-                                            <td>2020-01-13</td>
-                                            <td>US</td>
-                                            <td align="right">0.0</td>
-                                            <td align="right">0.0</td>
-                                            <td align="right">28907.05</td>
-                                            <td align="right">0.29</td>
-                                            </tr>
-                                            <tr>
-                                            <td>2020-01-14</td>
-                                            <td>US</td>
-                                            <td align="right">0.0</td>
-                                            <td align="right">0.0</td>
-                                            <td align="right">28939.67</td>
-                                            <td align="right">0.11</td>
-                                            </tr>
-                                            <tr>
-                                            <td>2020-01-15</td>
-                                            <td>US</td>
-                                            <td align="right">0.0</td>
-                                            <td align="right">0.0</td>
-                                            <td align="right">29030.22</td>
-                                            <td align="right">0.31</td>
-                                            </tr>
-                                            <tr>
-                                            <td>2020-01-16</td>
-                                            <td>US</td>
-                                            <td align="right">0.0</td>
-                                            <td align="right">0.0</td>
-                                            <td align="right">29297.64</td>
-                                            <td align="right">0.92</td>
-                                            </tr>
-                                            <tr>
-                                            <td>2020-01-17</td>
-                                            <td>US</td>
-                                            <td align="right">0.0</td>
-                                            <td align="right">0.0</td>
-                                            <td align="right">29348.1</td>
-                                            <td align="right">0.17</td>
-                                            </tr>
-                                            <tr>
-                                            <td>2020-01-21</td>
-                                            <td>US</td>
-                                            <td align="right">0.0</td>
-                                            <td align="right">0.0</td>
-                                            <td align="right">29196.04</td>
-                                            <td align="right">-0.52</td>
-                                            </tr>
-                                            <tr>
-                                                <td>2019-12-23</td>
-                                                <td>US</td>
-                                                <td align="right">0.0</td>
-                                                <td align="right">0.0</td>
-                                                <td align="right">28551.53</td>
-                                                <td align="right">0.34</td>
-                                                </tr>
-                                                <tr>
-                                                <td>2019-12-24</td>
-                                                <td>US</td>
-                                                <td align="right">0.0</td>
-                                                <td align="right">0.0</td>
-                                                <td align="right">28515.45</td>
-                                                <td align="right">-0.13</td>
-                                                </tr>
-                                                <tr>
-                                                <td>2019-12-26</td>
-                                                <td>US</td>
-                                                <td align="right">0.0</td>
-                                                <td align="right">0.0</td>
-                                                <td align="right">28621.39</td>
-                                                <td align="right">0.37</td>
-                                                </tr>
-                                                <tr>
-                                                <td>2019-12-27</td>
-                                                <td>US</td>
-                                                <td align="right">0.0</td>
-                                                <td align="right">0.0</td>
-                                                <td align="right">28645.26</td>
-                                                <td align="right">0.08</td>
-                                                </tr>
-                                                <tr>
-                                                <td>2019-12-30</td>
-                                                <td>US</td>
-                                                <td align="right">0.0</td>
-                                                <td align="right">0.0</td>
-                                                <td align="right">28462.14</td>
-                                                <td align="right">-0.64</td>
-                                                </tr>
-                                                <tr>
-                                                <td>2019-12-31</td>
-                                                <td>US</td>
-                                                <td align="right">0.0</td>
-                                                <td align="right">0.0</td>
-                                                <td align="right">28538.44</td>
-                                                <td align="right">0.27</td>
-                                                </tr>
-                                            </tbody></table>
+                                    <div id="csv_table">
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -637,13 +105,42 @@
         <script src="assets/demo/chart-area-Italy.js"></script>
         <script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js" crossorigin="anonymous"></script>
         <script src="https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap4.min.js" crossorigin="anonymous"></script>
-        <script src="assets/demo/datatables-demo.js"></script>
-        <script type="text/javascript" src="Chart.js"></script>
-        <script type="text/javascript" src="xlsx.full.min.js"></script>
-        <script type="text/javascript" src="chartjs-plugin-datasource.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.7.0/d3.min.js"></script>
         <script src="https://d3js.org/d3.v4.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
     </body>
 </html>
+
+<script>
+    $(document).ready(function(){
+      $.ajax({
+       url:"data/US_Auto.csv",
+       dataType:"text",
+       success:function(data)
+       {
+        var employee_data = data.split(/\r?\n|\r/);
+        var table_data = '<table class="table table-bordered table-striped">';
+        for(var count = 0; count<employee_data.length; count++)
+        {
+         var cell_data = employee_data[count].split(",");
+         table_data += '<tr>';
+         for(var cell_count=0; cell_count<cell_data.length; cell_count++)
+         {
+          if(count === 0)
+          {
+           table_data += '<th>'+cell_data[cell_count]+'</th>';
+          }
+          else
+          {
+           table_data += '<td>'+cell_data[cell_count]+'</td>';
+          }
+         }
+         table_data += '</tr>';
+        }
+        table_data += '</table>';
+        $('#csv_table').html(table_data);
+       }
+      });    
+    });
+    </script>

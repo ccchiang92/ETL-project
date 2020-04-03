@@ -10,6 +10,9 @@
         <link href="css/styles.css" rel="stylesheet" />
         <link href="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css" rel="stylesheet" crossorigin="anonymous" />
         <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/js/all.min.js" crossorigin="anonymous"></script>
+        <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     </head>
     <body class="sb-nav-fixed">
         <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
@@ -71,527 +74,8 @@
                             <div class="card-header"><i class="fas fa-table mr-1"></i>DataTable</div>
                             <div class="card-body">
                                 <div class="table-responsive">
-                                    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                                        <thead><tr><th title="Field #1">Date</th>
-                                            <th title="Field #2">Country/Region</th>
-                                            <th title="Field #3">Confirmed cases</th>
-                                            <th title="Field #4">Deaths</th>
-                                            <th title="Field #5">Index Price</th>
-                                            <th title="Field #6">Index Daily % Change</th>
-                                            </tr></thead>
-                                            <tbody><tr>
-                                            <td>2020-03-27</td>
-                                            <td>Italy</td>
-                                            <td align="right">86498.0</td>
-                                            <td align="right">9134.0</td>
-                                            <td align="right">16822.59</td>
-                                            <td align="right">-3.15</td>
-                                            </tr>
-                                            <tr>
-                                            <td>2020-03-26</td>
-                                            <td>Italy</td>
-                                            <td align="right">80589.0</td>
-                                            <td align="right">8215.0</td>
-                                            <td align="right">17369.38</td>
-                                            <td align="right">0.73</td>
-                                            </tr>
-                                            <tr>
-                                            <td>2020-03-25</td>
-                                            <td>Italy</td>
-                                            <td align="right">74386.0</td>
-                                            <td align="right">7503.0</td>
-                                            <td align="right">17243.68</td>
-                                            <td align="right">1.74</td>
-                                            </tr>
-                                            <tr>
-                                            <td>2020-03-24</td>
-                                            <td>Italy</td>
-                                            <td align="right">69176.0</td>
-                                            <td align="right">6820.0</td>
-                                            <td align="right">16948.6</td>
-                                            <td align="right">8.93</td>
-                                            </tr>
-                                            <tr>
-                                            <td>2020-03-23</td>
-                                            <td>Italy</td>
-                                            <td align="right">63927.0</td>
-                                            <td align="right">6077.0</td>
-                                            <td align="right">15559.8</td>
-                                            <td align="right">-1.09</td>
-                                            </tr>
-                                            <tr>
-                                            <td>2020-03-20</td>
-                                            <td>Italy</td>
-                                            <td align="right">47021.0</td>
-                                            <td align="right">4032.0</td>
-                                            <td align="right">15731.85</td>
-                                            <td align="right">1.71</td>
-                                            </tr>
-                                            <tr>
-                                            <td>2020-03-19</td>
-                                            <td>Italy</td>
-                                            <td align="right">41035.0</td>
-                                            <td align="right">3405.0</td>
-                                            <td align="right">15466.97</td>
-                                            <td align="right">2.29</td>
-                                            </tr>
-                                            <tr>
-                                            <td>2020-03-18</td>
-                                            <td>Italy</td>
-                                            <td align="right">35713.0</td>
-                                            <td align="right">2978.0</td>
-                                            <td align="right">15120.48</td>
-                                            <td align="right">-1.27</td>
-                                            </tr>
-                                            <tr>
-                                            <td>2020-03-17</td>
-                                            <td>Italy</td>
-                                            <td align="right">31506.0</td>
-                                            <td align="right">2503.0</td>
-                                            <td align="right">15314.77</td>
-                                            <td align="right">2.23</td>
-                                            </tr>
-                                            <tr>
-                                            <td>2020-03-16</td>
-                                            <td>Italy</td>
-                                            <td align="right">27980.0</td>
-                                            <td align="right">2158.0</td>
-                                            <td align="right">14980.34</td>
-                                            <td align="right">-6.1</td>
-                                            </tr>
-                                            <tr>
-                                            <td>2020-03-13</td>
-                                            <td>Italy</td>
-                                            <td align="right">17660.0</td>
-                                            <td align="right">1266.0</td>
-                                            <td align="right">15954.29</td>
-                                            <td align="right">7.12</td>
-                                            </tr>
-                                            <tr>
-                                            <td>2020-03-12</td>
-                                            <td>Italy</td>
-                                            <td align="right">12462.0</td>
-                                            <td align="right">827.0</td>
-                                            <td align="right">14894.44</td>
-                                            <td align="right">-16.92</td>
-                                            </tr>
-                                            <tr>
-                                            <td>2020-03-11</td>
-                                            <td>Italy</td>
-                                            <td align="right">12462.0</td>
-                                            <td align="right">827.0</td>
-                                            <td align="right">17928.64</td>
-                                            <td align="right">0.33</td>
-                                            </tr>
-                                            <tr>
-                                            <td>2020-03-10</td>
-                                            <td>Italy</td>
-                                            <td align="right">10149.0</td>
-                                            <td align="right">631.0</td>
-                                            <td align="right">17870.18</td>
-                                            <td align="right">-3.28</td>
-                                            </tr>
-                                            <tr>
-                                            <td>2020-03-09</td>
-                                            <td>Italy</td>
-                                            <td align="right">9172.0</td>
-                                            <td align="right">463.0</td>
-                                            <td align="right">18475.91</td>
-                                            <td align="right">-11.17</td>
-                                            </tr>
-                                            <tr>
-                                            <td>2020-03-06</td>
-                                            <td>Italy</td>
-                                            <td align="right">4636.0</td>
-                                            <td align="right">197.0</td>
-                                            <td align="right">20799.89</td>
-                                            <td align="right">-3.5</td>
-                                            </tr>
-                                            <tr>
-                                            <td>2020-03-05</td>
-                                            <td>Italy</td>
-                                            <td align="right">3858.0</td>
-                                            <td align="right">148.0</td>
-                                            <td align="right">21554.88</td>
-                                            <td align="right">-1.78</td>
-                                            </tr>
-                                            <tr>
-                                            <td>2020-03-04</td>
-                                            <td>Italy</td>
-                                            <td align="right">3089.0</td>
-                                            <td align="right">107.0</td>
-                                            <td align="right">21946.03</td>
-                                            <td align="right">0.91</td>
-                                            </tr>
-                                            <tr>
-                                            <td>2020-03-03</td>
-                                            <td>Italy</td>
-                                            <td align="right">2502.0</td>
-                                            <td align="right">79.0</td>
-                                            <td align="right">21748.2</td>
-                                            <td align="right">0.43</td>
-                                            </tr>
-                                            <tr>
-                                            <td>2020-03-02</td>
-                                            <td>Italy</td>
-                                            <td align="right">2036.0</td>
-                                            <td align="right">52.0</td>
-                                            <td align="right">21655.09</td>
-                                            <td align="right">-1.5</td>
-                                            </tr>
-                                            <tr>
-                                            <td>2020-02-28</td>
-                                            <td>Italy</td>
-                                            <td align="right">888.0</td>
-                                            <td align="right">21.0</td>
-                                            <td align="right">21984.21</td>
-                                            <td align="right">-3.58</td>
-                                            </tr>
-                                            <tr>
-                                            <td>2020-02-27</td>
-                                            <td>Italy</td>
-                                            <td align="right">655.0</td>
-                                            <td align="right">17.0</td>
-                                            <td align="right">22799.37</td>
-                                            <td align="right">-2.66</td>
-                                            </tr>
-                                            <tr>
-                                            <td>2020-02-26</td>
-                                            <td>Italy</td>
-                                            <td align="right">453.0</td>
-                                            <td align="right">12.0</td>
-                                            <td align="right">23422.54</td>
-                                            <td align="right">1.44</td>
-                                            </tr>
-                                            <tr>
-                                            <td>2020-02-25</td>
-                                            <td>Italy</td>
-                                            <td align="right">322.0</td>
-                                            <td align="right">10.0</td>
-                                            <td align="right">23090.44</td>
-                                            <td align="right">-1.44</td>
-                                            </tr>
-                                            <tr>
-                                            <td>2020-02-24</td>
-                                            <td>Italy</td>
-                                            <td align="right">229.0</td>
-                                            <td align="right">7.0</td>
-                                            <td align="right">23427.19</td>
-                                            <td align="right">-5.43</td>
-                                            </tr>
-                                            <tr>
-                                            <td>2020-02-21</td>
-                                            <td>Italy</td>
-                                            <td align="right">20.0</td>
-                                            <td align="right">1.0</td>
-                                            <td align="right">24773.15</td>
-                                            <td align="right">-1.22</td>
-                                            </tr>
-                                            <tr>
-                                            <td>2020-02-20</td>
-                                            <td>Italy</td>
-                                            <td align="right">3.0</td>
-                                            <td align="right">0.0</td>
-                                            <td align="right">25080.16</td>
-                                            <td align="right">-1.56</td>
-                                            </tr>
-                                            <tr>
-                                            <td>2020-02-19</td>
-                                            <td>Italy</td>
-                                            <td align="right">3.0</td>
-                                            <td align="right">0.0</td>
-                                            <td align="right">25477.55</td>
-                                            <td align="right">1.01</td>
-                                            </tr>
-                                            <tr>
-                                            <td>2020-02-18</td>
-                                            <td>Italy</td>
-                                            <td align="right">3.0</td>
-                                            <td align="right">0.0</td>
-                                            <td align="right">25223.51</td>
-                                            <td align="right">0.41</td>
-                                            </tr>
-                                            <tr>
-                                            <td>2020-02-17</td>
-                                            <td>Italy</td>
-                                            <td align="right">3.0</td>
-                                            <td align="right">0.0</td>
-                                            <td align="right">25120.54</td>
-                                            <td align="right">1.02</td>
-                                            </tr>
-                                            <tr>
-                                            <td>2020-02-14</td>
-                                            <td>Italy</td>
-                                            <td align="right">3.0</td>
-                                            <td align="right">0.0</td>
-                                            <td align="right">24867.01</td>
-                                            <td align="right">-0.1</td>
-                                            </tr>
-                                            <tr>
-                                            <td>2020-02-13</td>
-                                            <td>Italy</td>
-                                            <td align="right">3.0</td>
-                                            <td align="right">0.0</td>
-                                            <td align="right">24892.15</td>
-                                            <td align="right">0.12</td>
-                                            </tr>
-                                            <tr>
-                                            <td>2020-02-12</td>
-                                            <td>Italy</td>
-                                            <td align="right">3.0</td>
-                                            <td align="right">0.0</td>
-                                            <td align="right">24861.28</td>
-                                            <td align="right">0.7</td>
-                                            </tr>
-                                            <tr>
-                                            <td>2020-02-11</td>
-                                            <td>Italy</td>
-                                            <td align="right">3.0</td>
-                                            <td align="right">0.0</td>
-                                            <td align="right">24688.89</td>
-                                            <td align="right">0.74</td>
-                                            </tr>
-                                            <tr>
-                                            <td>2020-02-10</td>
-                                            <td>Italy</td>
-                                            <td align="right">3.0</td>
-                                            <td align="right">0.0</td>
-                                            <td align="right">24507.7</td>
-                                            <td align="right">0.12</td>
-                                            </tr>
-                                            <tr>
-                                            <td>2020-02-07</td>
-                                            <td>Italy</td>
-                                            <td align="right">3.0</td>
-                                            <td align="right">0.0</td>
-                                            <td align="right">24478.32</td>
-                                            <td align="right">-0.05</td>
-                                            </tr>
-                                            <tr>
-                                            <td>2020-02-06</td>
-                                            <td>Italy</td>
-                                            <td align="right">2.0</td>
-                                            <td align="right">0.0</td>
-                                            <td align="right">24490.35</td>
-                                            <td align="right">1.05</td>
-                                            </tr>
-                                            <tr>
-                                            <td>2020-02-05</td>
-                                            <td>Italy</td>
-                                            <td align="right">2.0</td>
-                                            <td align="right">0.0</td>
-                                            <td align="right">24236.63</td>
-                                            <td align="right">1.64</td>
-                                            </tr>
-                                            <tr>
-                                            <td>2020-02-04</td>
-                                            <td>Italy</td>
-                                            <td align="right">2.0</td>
-                                            <td align="right">0.0</td>
-                                            <td align="right">23844.85</td>
-                                            <td align="right">1.64</td>
-                                            </tr>
-                                            <tr>
-                                            <td>2020-02-03</td>
-                                            <td>Italy</td>
-                                            <td align="right">2.0</td>
-                                            <td align="right">0.0</td>
-                                            <td align="right">23460.01</td>
-                                            <td align="right">0.96</td>
-                                            </tr>
-                                            <tr>
-                                            <td>2020-01-31</td>
-                                            <td>Italy</td>
-                                            <td align="right">2.0</td>
-                                            <td align="right">0.0</td>
-                                            <td align="right">23237.03</td>
-                                            <td align="right">-2.29</td>
-                                            </tr>
-                                            <tr>
-                                            <td>2020-01-30</td>
-                                            <td>Italy</td>
-                                            <td align="right">0.0</td>
-                                            <td align="right">0.0</td>
-                                            <td align="right">23781.1</td>
-                                            <td align="right">-1.59</td>
-                                            </tr>
-                                            <tr>
-                                            <td>2020-01-29</td>
-                                            <td>Italy</td>
-                                            <td align="right">0.0</td>
-                                            <td align="right">0.0</td>
-                                            <td align="right">24164.73</td>
-                                            <td align="right">0.57</td>
-                                            </tr>
-                                            <tr>
-                                            <td>2020-01-28</td>
-                                            <td>Italy</td>
-                                            <td align="right">0.0</td>
-                                            <td align="right">0.0</td>
-                                            <td align="right">24027.63</td>
-                                            <td align="right">2.61</td>
-                                            </tr>
-                                            <tr>
-                                            <td>2020-01-27</td>
-                                            <td>Italy</td>
-                                            <td align="right">0.0</td>
-                                            <td align="right">0.0</td>
-                                            <td align="right">23416.13</td>
-                                            <td align="right">-2.31</td>
-                                            </tr>
-                                            <tr>
-                                            <td>2020-01-24</td>
-                                            <td>Italy</td>
-                                            <td align="right">0.0</td>
-                                            <td align="right">0.0</td>
-                                            <td align="right">23969.13</td>
-                                            <td align="right">1.11</td>
-                                            </tr>
-                                            <tr>
-                                            <td>2020-01-23</td>
-                                            <td>Italy</td>
-                                            <td align="right">0.0</td>
-                                            <td align="right">0.0</td>
-                                            <td align="right">23707.05</td>
-                                            <td align="right">0.0</td>
-                                            </tr>
-                                            <tr>
-                                            <td>2020-01-22</td>
-                                            <td>Italy</td>
-                                            <td align="right">0.0</td>
-                                            <td align="right">0.0</td>
-                                            <td align="right">23706.29</td>
-                                            <td align="right">-0.58</td>
-                                            </tr>
-                                            <tr>
-                                            <td>2019-12-27</td>
-                                            <td>Italy</td>
-                                            <td align="right">0.0</td>
-                                            <td align="right">0.0</td>
-                                            <td align="right">23757.6</td>
-                                            <td align="right">-0.59</td>
-                                            </tr>
-                                            <tr>
-                                            <td>2019-12-30</td>
-                                            <td>Italy</td>
-                                            <td align="right">0.0</td>
-                                            <td align="right">0.0</td>
-                                            <td align="right">23506.37</td>
-                                            <td align="right">-1.06</td>
-                                            </tr>
-                                            <tr>
-                                            <td>2020-01-02</td>
-                                            <td>Italy</td>
-                                            <td align="right">0.0</td>
-                                            <td align="right">0.0</td>
-                                            <td align="right">23836.26</td>
-                                            <td align="right">1.4</td>
-                                            </tr>
-                                            <tr>
-                                            <td>2020-01-03</td>
-                                            <td>Italy</td>
-                                            <td align="right">0.0</td>
-                                            <td align="right">0.0</td>
-                                            <td align="right">23702.35</td>
-                                            <td align="right">-0.56</td>
-                                            </tr>
-                                            <tr>
-                                            <td>2020-01-06</td>
-                                            <td>Italy</td>
-                                            <td align="right">0.0</td>
-                                            <td align="right">0.0</td>
-                                            <td align="right">23581.29</td>
-                                            <td align="right">-0.51</td>
-                                            </tr>
-                                            <tr>
-                                            <td>2020-01-07</td>
-                                            <td>Italy</td>
-                                            <td align="right">0.0</td>
-                                            <td align="right">0.0</td>
-                                            <td align="right">23723.38</td>
-                                            <td align="right">0.6</td>
-                                            </tr>
-                                            <tr>
-                                            <td>2020-01-08</td>
-                                            <td>Italy</td>
-                                            <td align="right">0.0</td>
-                                            <td align="right">0.0</td>
-                                            <td align="right">23832.02</td>
-                                            <td align="right">0.46</td>
-                                            </tr>
-                                            <tr>
-                                            <td>2020-01-09</td>
-                                            <td>Italy</td>
-                                            <td align="right">0.0</td>
-                                            <td align="right">0.0</td>
-                                            <td align="right">24016.7</td>
-                                            <td align="right">0.77</td>
-                                            </tr>
-                                            <tr>
-                                            <td>2020-01-10</td>
-                                            <td>Italy</td>
-                                            <td align="right">0.0</td>
-                                            <td align="right">0.0</td>
-                                            <td align="right">24021.4</td>
-                                            <td align="right">0.02</td>
-                                            </tr>
-                                            <tr>
-                                            <td>2020-01-13</td>
-                                            <td>Italy</td>
-                                            <td align="right">0.0</td>
-                                            <td align="right">0.0</td>
-                                            <td align="right">23896.59</td>
-                                            <td align="right">-0.52</td>
-                                            </tr>
-                                            <tr>
-                                            <td>2020-01-14</td>
-                                            <td>Italy</td>
-                                            <td align="right">0.0</td>
-                                            <td align="right">0.0</td>
-                                            <td align="right">23928.21</td>
-                                            <td align="right">0.13</td>
-                                            </tr>
-                                            <tr>
-                                            <td>2020-01-15</td>
-                                            <td>Italy</td>
-                                            <td align="right">0.0</td>
-                                            <td align="right">0.0</td>
-                                            <td align="right">23763.86</td>
-                                            <td align="right">-0.69</td>
-                                            </tr>
-                                            <tr>
-                                            <td>2020-01-16</td>
-                                            <td>Italy</td>
-                                            <td align="right">0.0</td>
-                                            <td align="right">0.0</td>
-                                            <td align="right">23940.41</td>
-                                            <td align="right">0.74</td>
-                                            </tr>
-                                            <tr>
-                                            <td>2020-01-17</td>
-                                            <td>Italy</td>
-                                            <td align="right">0.0</td>
-                                            <td align="right">0.0</td>
-                                            <td align="right">24141.07</td>
-                                            <td align="right">0.84</td>
-                                            </tr>
-                                            <tr>
-                                            <td>2020-01-20</td>
-                                            <td>Italy</td>
-                                            <td align="right">0.0</td>
-                                            <td align="right">0.0</td>
-                                            <td align="right">24002.45</td>
-                                            <td align="right">-0.57</td>
-                                            </tr>
-                                            <tr>
-                                            <td>2020-01-21</td>
-                                            <td>Italy</td>
-                                            <td align="right">0.0</td>
-                                            <td align="right">0.0</td>
-                                            <td align="right">23845.28</td>
-                                            <td align="right">-0.65</td>
-                                            </tr>
-                                            </tbody></table>
+                                    <div id="csv_table">
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -621,13 +105,42 @@
         <script src="assets/demo/chart-area-Italy.js"></script>
         <script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js" crossorigin="anonymous"></script>
         <script src="https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap4.min.js" crossorigin="anonymous"></script>
-        <script src="assets/demo/datatables-demo.js"></script>
-        <script type="text/javascript" src="Chart.js"></script>
-        <script type="text/javascript" src="xlsx.full.min.js"></script>
-        <script type="text/javascript" src="chartjs-plugin-datasource.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.7.0/d3.min.js"></script>
         <script src="https://d3js.org/d3.v4.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
     </body>
 </html>
+
+<script>
+    $(document).ready(function(){
+      $.ajax({
+       url:"data/Italy_Auto.csv",
+       dataType:"text",
+       success:function(data)
+       {
+        var employee_data = data.split(/\r?\n|\r/);
+        var table_data = '<table class="table table-bordered table-striped">';
+        for(var count = 0; count<employee_data.length; count++)
+        {
+         var cell_data = employee_data[count].split(",");
+         table_data += '<tr>';
+         for(var cell_count=0; cell_count<cell_data.length; cell_count++)
+         {
+          if(count === 0)
+          {
+           table_data += '<th>'+cell_data[cell_count]+'</th>';
+          }
+          else
+          {
+           table_data += '<td>'+cell_data[cell_count]+'</td>';
+          }
+         }
+         table_data += '</tr>';
+        }
+        table_data += '</table>';
+        $('#csv_table').html(table_data);
+       }
+      });    
+    });
+    </script>

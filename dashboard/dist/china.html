@@ -10,6 +10,9 @@
         <link href="css/styles.css" rel="stylesheet" />
         <link href="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css" rel="stylesheet" crossorigin="anonymous" />
         <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/js/all.min.js" crossorigin="anonymous"></script>
+        <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     </head>
     <body class="sb-nav-fixed">
         <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
@@ -71,535 +74,8 @@
                             <div class="card-header"><i class="fas fa-table mr-1"></i>DataTable</div>
                             <div class="card-body">
                                 <div class="table-responsive">
-                                    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                                        <thead><tr><th title="Field #1">Date</th>
-                                            <th title="Field #2">Country/Region</th>
-                                            <th title="Field #3">Confirmed cases</th>
-                                            <th title="Field #4">Deaths</th>
-                                            <th title="Field #5">Index Price</th>
-                                            <th title="Field #6">Index Daily % Change</th>
-                                            </tr></thead>
-                                            <tbody><tr>
-                                            <td>2020-03-27</td>
-                                            <td>Mainland China</td>
-                                            <td align="right">81897.0</td>
-                                            <td align="right">3296.0</td>
-                                            <td align="right">2772.2</td>
-                                            <td align="right">0.26</td>
-                                            </tr>
-                                            <tr>
-                                            <td>2020-03-26</td>
-                                            <td>Mainland China</td>
-                                            <td align="right">81782.0</td>
-                                            <td align="right">3291.0</td>
-                                            <td align="right">2764.91</td>
-                                            <td align="right">-0.6</td>
-                                            </tr>
-                                            <tr>
-                                            <td>2020-03-25</td>
-                                            <td>Mainland China</td>
-                                            <td align="right">81661.0</td>
-                                            <td align="right">3285.0</td>
-                                            <td align="right">2781.59</td>
-                                            <td align="right">2.17</td>
-                                            </tr>
-                                            <tr>
-                                            <td>2020-03-24</td>
-                                            <td>Mainland China</td>
-                                            <td align="right">81591.0</td>
-                                            <td align="right">3281.0</td>
-                                            <td align="right">2722.44</td>
-                                            <td align="right">2.34</td>
-                                            </tr>
-                                            <tr>
-                                            <td>2020-03-23</td>
-                                            <td>Mainland China</td>
-                                            <td align="right">81496.0</td>
-                                            <td align="right">3274.0</td>
-                                            <td align="right">2660.17</td>
-                                            <td align="right">-3.11</td>
-                                            </tr>
-                                            <tr>
-                                            <td>2020-03-20</td>
-                                            <td>Mainland China</td>
-                                            <td align="right">81250.0</td>
-                                            <td align="right">3253.0</td>
-                                            <td align="right">2745.62</td>
-                                            <td align="right">1.61</td>
-                                            </tr>
-                                            <tr>
-                                            <td>2020-03-19</td>
-                                            <td>Mainland China</td>
-                                            <td align="right">81156.0</td>
-                                            <td align="right">3249.0</td>
-                                            <td align="right">2702.13</td>
-                                            <td align="right">-0.98</td>
-                                            </tr>
-                                            <tr>
-                                            <td>2020-03-18</td>
-                                            <td>Mainland China</td>
-                                            <td align="right">81102.0</td>
-                                            <td align="right">3241.0</td>
-                                            <td align="right">2728.76</td>
-                                            <td align="right">-1.83</td>
-                                            </tr>
-                                            <tr>
-                                            <td>2020-03-17</td>
-                                            <td>Mainland China</td>
-                                            <td align="right">81058.0</td>
-                                            <td align="right">3230.0</td>
-                                            <td align="right">2779.64</td>
-                                            <td align="right">-0.34</td>
-                                            </tr>
-                                            <tr>
-                                            <td>2020-03-16</td>
-                                            <td>Mainland China</td>
-                                            <td align="right">81033.0</td>
-                                            <td align="right">3217.0</td>
-                                            <td align="right">2789.25</td>
-                                            <td align="right">-3.4</td>
-                                            </tr>
-                                            <tr>
-                                            <td>2020-03-13</td>
-                                            <td>Mainland China</td>
-                                            <td align="right">80945.0</td>
-                                            <td align="right">3180.0</td>
-                                            <td align="right">2887.43</td>
-                                            <td align="right">-1.23</td>
-                                            </tr>
-                                            <tr>
-                                            <td>2020-03-12</td>
-                                            <td>Mainland China</td>
-                                            <td align="right">80932.0</td>
-                                            <td align="right">3172.0</td>
-                                            <td align="right">2923.49</td>
-                                            <td align="right">-1.52</td>
-                                            </tr>
-                                            <tr>
-                                            <td>2020-03-12</td>
-                                            <td>Mainland China</td>
-                                            <td align="right">0.0</td>
-                                            <td align="right">0.0</td>
-                                            <td align="right">2923.49</td>
-                                            <td align="right">-1.52</td>
-                                            </tr>
-                                            <tr>
-                                            <td>2020-03-11</td>
-                                            <td>Mainland China</td>
-                                            <td align="right">80921.0</td>
-                                            <td align="right">3161.0</td>
-                                            <td align="right">2968.52</td>
-                                            <td align="right">-0.94</td>
-                                            </tr>
-                                            <tr>
-                                            <td>2020-03-11</td>
-                                            <td>Mainland China</td>
-                                            <td align="right">0.0</td>
-                                            <td align="right">0.0</td>
-                                            <td align="right">2968.52</td>
-                                            <td align="right">-0.94</td>
-                                            </tr>
-                                            <tr>
-                                            <td>2020-03-10</td>
-                                            <td>Mainland China</td>
-                                            <td align="right">80757.0</td>
-                                            <td align="right">3136.0</td>
-                                            <td align="right">2996.76</td>
-                                            <td align="right">1.82</td>
-                                            </tr>
-                                            <tr>
-                                            <td>2020-03-09</td>
-                                            <td>Mainland China</td>
-                                            <td align="right">80735.0</td>
-                                            <td align="right">3120.0</td>
-                                            <td align="right">2943.29</td>
-                                            <td align="right">-3.01</td>
-                                            </tr>
-                                            <tr>
-                                            <td>2020-03-06</td>
-                                            <td>Mainland China</td>
-                                            <td align="right">80573.0</td>
-                                            <td align="right">3042.0</td>
-                                            <td align="right">3034.51</td>
-                                            <td align="right">-1.21</td>
-                                            </tr>
-                                            <tr>
-                                            <td>2020-03-05</td>
-                                            <td>Mainland China</td>
-                                            <td align="right">80422.0</td>
-                                            <td align="right">3013.0</td>
-                                            <td align="right">3071.68</td>
-                                            <td align="right">1.99</td>
-                                            </tr>
-                                            <tr>
-                                            <td>2020-03-04</td>
-                                            <td>Mainland China</td>
-                                            <td align="right">80271.0</td>
-                                            <td align="right">2981.0</td>
-                                            <td align="right">3011.67</td>
-                                            <td align="right">0.63</td>
-                                            </tr>
-                                            <tr>
-                                            <td>2020-03-03</td>
-                                            <td>Mainland China</td>
-                                            <td align="right">80151.0</td>
-                                            <td align="right">2945.0</td>
-                                            <td align="right">2992.9</td>
-                                            <td align="right">0.74</td>
-                                            </tr>
-                                            <tr>
-                                            <td>2020-03-02</td>
-                                            <td>Mainland China</td>
-                                            <td align="right">80026.0</td>
-                                            <td align="right">2912.0</td>
-                                            <td align="right">2970.93</td>
-                                            <td align="right">3.15</td>
-                                            </tr>
-                                            <tr>
-                                            <td>2020-02-28</td>
-                                            <td>Mainland China</td>
-                                            <td align="right">78824.0</td>
-                                            <td align="right">2788.0</td>
-                                            <td align="right">2880.3</td>
-                                            <td align="right">-3.71</td>
-                                            </tr>
-                                            <tr>
-                                            <td>2020-02-27</td>
-                                            <td>Mainland China</td>
-                                            <td align="right">78498.0</td>
-                                            <td align="right">2744.0</td>
-                                            <td align="right">2991.33</td>
-                                            <td align="right">0.11</td>
-                                            </tr>
-                                            <tr>
-                                            <td>2020-02-26</td>
-                                            <td>Mainland China</td>
-                                            <td align="right">78065.0</td>
-                                            <td align="right">2715.0</td>
-                                            <td align="right">2987.93</td>
-                                            <td align="right">-0.83</td>
-                                            </tr>
-                                            <tr>
-                                            <td>2020-02-25</td>
-                                            <td>Mainland China</td>
-                                            <td align="right">77660.0</td>
-                                            <td align="right">2663.0</td>
-                                            <td align="right">3013.05</td>
-                                            <td align="right">-0.6</td>
-                                            </tr>
-                                            <tr>
-                                            <td>2020-02-24</td>
-                                            <td>Mainland China</td>
-                                            <td align="right">77152.0</td>
-                                            <td align="right">2593.0</td>
-                                            <td align="right">3031.23</td>
-                                            <td align="right">-0.28</td>
-                                            </tr>
-                                            <tr>
-                                            <td>2020-02-21</td>
-                                            <td>Mainland China</td>
-                                            <td align="right">75472.0</td>
-                                            <td align="right">2236.0</td>
-                                            <td align="right">3039.67</td>
-                                            <td align="right">0.31</td>
-                                            </tr>
-                                            <tr>
-                                            <td>2020-02-20</td>
-                                            <td>Mainland China</td>
-                                            <td align="right">74999.0</td>
-                                            <td align="right">2236.0</td>
-                                            <td align="right">3030.15</td>
-                                            <td align="right">1.84</td>
-                                            </tr>
-                                            <tr>
-                                            <td>2020-02-19</td>
-                                            <td>Mainland China</td>
-                                            <td align="right">74546.0</td>
-                                            <td align="right">2114.0</td>
-                                            <td align="right">2975.4</td>
-                                            <td align="right">-0.32</td>
-                                            </tr>
-                                            <tr>
-                                            <td>2020-02-18</td>
-                                            <td>Mainland China</td>
-                                            <td align="right">74139.0</td>
-                                            <td align="right">2002.0</td>
-                                            <td align="right">2984.97</td>
-                                            <td align="right">0.05</td>
-                                            </tr>
-                                            <tr>
-                                            <td>2020-02-17</td>
-                                            <td>Mainland China</td>
-                                            <td align="right">72364.0</td>
-                                            <td align="right">1863.0</td>
-                                            <td align="right">2983.62</td>
-                                            <td align="right">2.28</td>
-                                            </tr>
-                                            <tr>
-                                            <td>2020-02-14</td>
-                                            <td>Mainland China</td>
-                                            <td align="right">66292.0</td>
-                                            <td align="right">1520.0</td>
-                                            <td align="right">2917.01</td>
-                                            <td align="right">0.38</td>
-                                            </tr>
-                                            <tr>
-                                            <td>2020-02-13</td>
-                                            <td>Mainland China</td>
-                                            <td align="right">59832.0</td>
-                                            <td align="right">1368.0</td>
-                                            <td align="right">2906.07</td>
-                                            <td align="right">-0.71</td>
-                                            </tr>
-                                            <tr>
-                                            <td>2020-02-12</td>
-                                            <td>Mainland China</td>
-                                            <td align="right">44699.0</td>
-                                            <td align="right">1116.0</td>
-                                            <td align="right">2926.9</td>
-                                            <td align="right">0.87</td>
-                                            </tr>
-                                            <tr>
-                                            <td>2020-02-11</td>
-                                            <td>Mainland China</td>
-                                            <td align="right">44327.0</td>
-                                            <td align="right">1111.0</td>
-                                            <td align="right">2901.67</td>
-                                            <td align="right">0.39</td>
-                                            </tr>
-                                            <tr>
-                                            <td>2020-02-10</td>
-                                            <td>Mainland China</td>
-                                            <td align="right">42306.0</td>
-                                            <td align="right">1011.0</td>
-                                            <td align="right">2890.49</td>
-                                            <td align="right">0.51</td>
-                                            </tr>
-                                            <tr>
-                                            <td>2020-02-07</td>
-                                            <td>Mainland China</td>
-                                            <td align="right">34075.0</td>
-                                            <td align="right">717.0</td>
-                                            <td align="right">2875.96</td>
-                                            <td align="right">0.33</td>
-                                            </tr>
-                                            <tr>
-                                            <td>2020-02-06</td>
-                                            <td>Mainland China</td>
-                                            <td align="right">30553.0</td>
-                                            <td align="right">632.0</td>
-                                            <td align="right">2866.51</td>
-                                            <td align="right">1.72</td>
-                                            </tr>
-                                            <tr>
-                                            <td>2020-02-05</td>
-                                            <td>Mainland China</td>
-                                            <td align="right">27409.0</td>
-                                            <td align="right">562.0</td>
-                                            <td align="right">2818.09</td>
-                                            <td align="right">1.25</td>
-                                            </tr>
-                                            <tr>
-                                            <td>2020-02-04</td>
-                                            <td>Mainland China</td>
-                                            <td align="right">23680.0</td>
-                                            <td align="right">490.0</td>
-                                            <td align="right">2783.29</td>
-                                            <td align="right">1.34</td>
-                                            </tr>
-                                            <tr>
-                                            <td>2020-02-03</td>
-                                            <td>Mainland China</td>
-                                            <td align="right">19693.0</td>
-                                            <td align="right">425.0</td>
-                                            <td align="right">2746.61</td>
-                                            <td align="right">-7.72</td>
-                                            </tr>
-                                            <tr>
-                                            <td>2020-01-23</td>
-                                            <td>Mainland China</td>
-                                            <td align="right">639.0</td>
-                                            <td align="right">18.0</td>
-                                            <td align="right">2976.53</td>
-                                            <td align="right">-2.75</td>
-                                            </tr>
-                                            <tr>
-                                            <td>2020-01-22</td>
-                                            <td>Mainland China</td>
-                                            <td align="right">547.0</td>
-                                            <td align="right">17.0</td>
-                                            <td align="right">3060.75</td>
-                                            <td align="right">0.28</td>
-                                            </tr>
-                                            <tr>
-                                            <td>2020-01-21</td>
-                                            <td>Mainland China</td>
-                                            <td align="right">0.0</td>
-                                            <td align="right">0.0</td>
-                                            <td align="right">3052.14</td>
-                                            <td align="right">-1.41</td>
-                                            </tr>
-                                            <tr>
-                                            <td>2020-01-20</td>
-                                            <td>Mainland China</td>
-                                            <td align="right">0.0</td>
-                                            <td align="right">0.0</td>
-                                            <td align="right">3095.79</td>
-                                            <td align="right">0.66</td>
-                                            </tr>
-                                            <tr>
-                                            <td>2020-01-17</td>
-                                            <td>Mainland China</td>
-                                            <td align="right">0.0</td>
-                                            <td align="right">0.0</td>
-                                            <td align="right">3075.5</td>
-                                            <td align="right">0.05</td>
-                                            </tr>
-                                            <tr>
-                                            <td>2020-01-16</td>
-                                            <td>Mainland China</td>
-                                            <td align="right">0.0</td>
-                                            <td align="right">0.0</td>
-                                            <td align="right">3074.08</td>
-                                            <td align="right">-0.52</td>
-                                            </tr>
-                                            <tr>
-                                            <td>2020-01-15</td>
-                                            <td>Mainland China</td>
-                                            <td align="right">0.0</td>
-                                            <td align="right">0.0</td>
-                                            <td align="right">3090.04</td>
-                                            <td align="right">-0.54</td>
-                                            </tr>
-                                            <tr>
-                                            <td>2020-01-14</td>
-                                            <td>Mainland China</td>
-                                            <td align="right">0.0</td>
-                                            <td align="right">0.0</td>
-                                            <td align="right">3106.82</td>
-                                            <td align="right">-0.28</td>
-                                            </tr>
-                                            <tr>
-                                            <td>2020-01-13</td>
-                                            <td>Mainland China</td>
-                                            <td align="right">0.0</td>
-                                            <td align="right">0.0</td>
-                                            <td align="right">3115.57</td>
-                                            <td align="right">0.75</td>
-                                            </tr>
-                                            <tr>
-                                            <td>2020-01-10</td>
-                                            <td>Mainland China</td>
-                                            <td align="right">0.0</td>
-                                            <td align="right">0.0</td>
-                                            <td align="right">3092.29</td>
-                                            <td align="right">-0.08</td>
-                                            </tr>
-                                            <tr>
-                                            <td>2020-01-09</td>
-                                            <td>Mainland China</td>
-                                            <td align="right">0.0</td>
-                                            <td align="right">0.0</td>
-                                            <td align="right">3094.88</td>
-                                            <td align="right">0.91</td>
-                                            </tr>
-                                            <tr>
-                                            <td>2020-01-08</td>
-                                            <td>Mainland China</td>
-                                            <td align="right">0.0</td>
-                                            <td align="right">0.0</td>
-                                            <td align="right">3066.89</td>
-                                            <td align="right">-1.22</td>
-                                            </tr>
-                                            <tr>
-                                            <td>2020-01-07</td>
-                                            <td>Mainland China</td>
-                                            <td align="right">0.0</td>
-                                            <td align="right">0.0</td>
-                                            <td align="right">3104.8</td>
-                                            <td align="right">0.69</td>
-                                            </tr>
-                                            <tr>
-                                            <td>2020-01-06</td>
-                                            <td>Mainland China</td>
-                                            <td align="right">0.0</td>
-                                            <td align="right">0.0</td>
-                                            <td align="right">3083.41</td>
-                                            <td align="right">-0.01</td>
-                                            </tr>
-                                            <tr>
-                                            <td>2020-01-03</td>
-                                            <td>Mainland China</td>
-                                            <td align="right">0.0</td>
-                                            <td align="right">0.0</td>
-                                            <td align="right">3083.79</td>
-                                            <td align="right">-0.05</td>
-                                            </tr>
-                                            <tr>
-                                            <td>2020-01-02</td>
-                                            <td>Mainland China</td>
-                                            <td align="right">0.0</td>
-                                            <td align="right">0.0</td>
-                                            <td align="right">3085.2</td>
-                                            <td align="right">1.15</td>
-                                            </tr>
-                                            <tr>
-                                            <td>2019-12-31</td>
-                                            <td>Mainland China</td>
-                                            <td align="right">0.0</td>
-                                            <td align="right">0.0</td>
-                                            <td align="right">3050.12</td>
-                                            <td align="right">0.33</td>
-                                            </tr>
-                                            <tr>
-                                            <td>2019-12-30</td>
-                                            <td>Mainland China</td>
-                                            <td align="right">0.0</td>
-                                            <td align="right">0.0</td>
-                                            <td align="right">3040.02</td>
-                                            <td align="right">1.16</td>
-                                            </tr>
-                                            <tr>
-                                            <td>2019-12-27</td>
-                                            <td>Mainland China</td>
-                                            <td align="right">0.0</td>
-                                            <td align="right">0.0</td>
-                                            <td align="right">3005.04</td>
-                                            <td align="right">-0.08</td>
-                                            </tr>
-                                            <tr>
-                                            <td>2019-12-26</td>
-                                            <td>Mainland China</td>
-                                            <td align="right">0.0</td>
-                                            <td align="right">0.0</td>
-                                            <td align="right">3007.35</td>
-                                            <td align="right">0.85</td>
-                                            </tr>
-                                            <tr>
-                                            <td>2019-12-25</td>
-                                            <td>Mainland China</td>
-                                            <td align="right">0.0</td>
-                                            <td align="right">0.0</td>
-                                            <td align="right">2981.88</td>
-                                            <td align="right">-0.03</td>
-                                            </tr>
-                                            <tr>
-                                            <td>2019-12-24</td>
-                                            <td>Mainland China</td>
-                                            <td align="right">0.0</td>
-                                            <td align="right">0.0</td>
-                                            <td align="right">2982.68</td>
-                                            <td align="right">0.67</td>
-                                            </tr>
-                                            <tr>
-                                            <td>2019-12-23</td>
-                                            <td>Mainland China</td>
-                                            <td align="right">0.0</td>
-                                            <td align="right">0.0</td>
-                                            <td align="right">2962.75</td>
-                                            <td align="right">-1.4</td>
-                                            </tr>
-                                            </tbody></table>
+                                       <div id="csv_table">
+                                       </div>
                                 </div>
                             </div>
                         </div>
@@ -629,13 +105,42 @@
         <script src="assets/demo/chart-area-Italy.js"></script>
         <script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js" crossorigin="anonymous"></script>
         <script src="https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap4.min.js" crossorigin="anonymous"></script>
-        <script src="assets/demo/datatables-demo.js"></script>
-        <script type="text/javascript" src="Chart.js"></script>
-        <script type="text/javascript" src="xlsx.full.min.js"></script>
-        <script type="text/javascript" src="chartjs-plugin-datasource.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.7.0/d3.min.js"></script>
         <script src="https://d3js.org/d3.v4.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
     </body>
 </html>
+
+<script>
+    $(document).ready(function(){
+      $.ajax({
+       url:"data/Mainland China_Auto.csv",
+       dataType:"text",
+       success:function(data)
+       {
+        var employee_data = data.split(/\r?\n|\r/);
+        var table_data = '<table class="table table-bordered table-striped">';
+        for(var count = 0; count<employee_data.length; count++)
+        {
+         var cell_data = employee_data[count].split(",");
+         table_data += '<tr>';
+         for(var cell_count=0; cell_count<cell_data.length; cell_count++)
+         {
+          if(count === 0)
+          {
+           table_data += '<th>'+cell_data[cell_count]+'</th>';
+          }
+          else
+          {
+           table_data += '<td>'+cell_data[cell_count]+'</td>';
+          }
+         }
+         table_data += '</tr>';
+        }
+        table_data += '</table>';
+        $('#csv_table').html(table_data);
+       }
+      });    
+    });
+    </script>

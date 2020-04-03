@@ -10,6 +10,9 @@
         <link href="css/styles.css" rel="stylesheet" />
         <link href="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css" rel="stylesheet" crossorigin="anonymous" />
         <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/js/all.min.js" crossorigin="anonymous"></script>
+        <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     </head>
     <body class="sb-nav-fixed">
         <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
@@ -71,535 +74,8 @@
                             <div class="card-header"><i class="fas fa-table mr-1"></i>DataTable</div>
                             <div class="card-body">
                                 <div class="table-responsive">
-                                    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                                        <thead><tr><th title="Field #1">Date</th>
-                                            <th title="Field #2">Country/Region</th>
-                                            <th title="Field #3">Confirmed cases</th>
-                                            <th title="Field #4">Deaths</th>
-                                            <th title="Field #5">Index Price</th>
-                                            <th title="Field #6">Index Daily % Change</th>
-                                            </tr></thead>
-                                            <tbody><tr>
-                                            <td>2020-03-27</td>
-                                            <td>South Korea</td>
-                                            <td align="right">9332.0</td>
-                                            <td align="right">139.0</td>
-                                            <td align="right">1717.73</td>
-                                            <td align="right">1.87</td>
-                                            </tr>
-                                            <tr>
-                                            <td>2020-03-26</td>
-                                            <td>South Korea</td>
-                                            <td align="right">9241.0</td>
-                                            <td align="right">131.0</td>
-                                            <td align="right">1686.24</td>
-                                            <td align="right">-1.09</td>
-                                            </tr>
-                                            <tr>
-                                            <td>2020-03-25</td>
-                                            <td>South Korea</td>
-                                            <td align="right">9137.0</td>
-                                            <td align="right">126.0</td>
-                                            <td align="right">1704.76</td>
-                                            <td align="right">5.89</td>
-                                            </tr>
-                                            <tr>
-                                            <td>2020-03-24</td>
-                                            <td>South Korea</td>
-                                            <td align="right">9037.0</td>
-                                            <td align="right">120.0</td>
-                                            <td align="right">1609.97</td>
-                                            <td align="right">8.6</td>
-                                            </tr>
-                                            <tr>
-                                            <td>2020-03-23</td>
-                                            <td>South Korea</td>
-                                            <td align="right">8961.0</td>
-                                            <td align="right">111.0</td>
-                                            <td align="right">1482.46</td>
-                                            <td align="right">-5.34</td>
-                                            </tr>
-                                            <tr>
-                                            <td>2020-03-20</td>
-                                            <td>South Korea</td>
-                                            <td align="right">8652.0</td>
-                                            <td align="right">94.0</td>
-                                            <td align="right">1566.15</td>
-                                            <td align="right">7.44</td>
-                                            </tr>
-                                            <tr>
-                                            <td>2020-03-19</td>
-                                            <td>South Korea</td>
-                                            <td align="right">8565.0</td>
-                                            <td align="right">91.0</td>
-                                            <td align="right">1457.64</td>
-                                            <td align="right">-8.39</td>
-                                            </tr>
-                                            <tr>
-                                            <td>2020-03-18</td>
-                                            <td>South Korea</td>
-                                            <td align="right">8413.0</td>
-                                            <td align="right">84.0</td>
-                                            <td align="right">1591.2</td>
-                                            <td align="right">-4.86</td>
-                                            </tr>
-                                            <tr>
-                                            <td>2020-03-17</td>
-                                            <td>South Korea</td>
-                                            <td align="right">8320.0</td>
-                                            <td align="right">81.0</td>
-                                            <td align="right">1672.44</td>
-                                            <td align="right">-2.47</td>
-                                            </tr>
-                                            <tr>
-                                            <td>2020-03-16</td>
-                                            <td>South Korea</td>
-                                            <td align="right">8236.0</td>
-                                            <td align="right">75.0</td>
-                                            <td align="right">1714.86</td>
-                                            <td align="right">-3.19</td>
-                                            </tr>
-                                            <tr>
-                                            <td>2020-03-13</td>
-                                            <td>South Korea</td>
-                                            <td align="right">7979.0</td>
-                                            <td align="right">66.0</td>
-                                            <td align="right">1771.44</td>
-                                            <td align="right">-3.43</td>
-                                            </tr>
-                                            <tr>
-                                            <td>2020-03-12</td>
-                                            <td>South Korea</td>
-                                            <td align="right">7869.0</td>
-                                            <td align="right">66.0</td>
-                                            <td align="right">1834.33</td>
-                                            <td align="right">-3.87</td>
-                                            </tr>
-                                            <tr>
-                                            <td>2020-03-11</td>
-                                            <td>South Korea</td>
-                                            <td align="right">7755.0</td>
-                                            <td align="right">60.0</td>
-                                            <td align="right">1908.27</td>
-                                            <td align="right">-2.78</td>
-                                            </tr>
-                                            <tr>
-                                            <td>2020-03-10</td>
-                                            <td>South Korea</td>
-                                            <td align="right">7513.0</td>
-                                            <td align="right">54.0</td>
-                                            <td align="right">1962.93</td>
-                                            <td align="right">0.42</td>
-                                            </tr>
-                                            <tr>
-                                            <td>2020-03-09</td>
-                                            <td>South Korea</td>
-                                            <td align="right">7478.0</td>
-                                            <td align="right">53.0</td>
-                                            <td align="right">1954.77</td>
-                                            <td align="right">-4.19</td>
-                                            </tr>
-                                            <tr>
-                                            <td>2020-03-06</td>
-                                            <td>South Korea</td>
-                                            <td align="right">6593.0</td>
-                                            <td align="right">42.0</td>
-                                            <td align="right">2040.22</td>
-                                            <td align="right">-2.16</td>
-                                            </tr>
-                                            <tr>
-                                            <td>2020-03-05</td>
-                                            <td>South Korea</td>
-                                            <td align="right">6088.0</td>
-                                            <td align="right">35.0</td>
-                                            <td align="right">2085.26</td>
-                                            <td align="right">1.26</td>
-                                            </tr>
-                                            <tr>
-                                            <td>2020-03-04</td>
-                                            <td>South Korea</td>
-                                            <td align="right">5621.0</td>
-                                            <td align="right">35.0</td>
-                                            <td align="right">2059.33</td>
-                                            <td align="right">2.24</td>
-                                            </tr>
-                                            <tr>
-                                            <td>2020-03-03</td>
-                                            <td>South Korea</td>
-                                            <td align="right">5186.0</td>
-                                            <td align="right">28.0</td>
-                                            <td align="right">2014.15</td>
-                                            <td align="right">0.58</td>
-                                            </tr>
-                                            <tr>
-                                            <td>2020-03-02</td>
-                                            <td>South Korea</td>
-                                            <td align="right">4335.0</td>
-                                            <td align="right">28.0</td>
-                                            <td align="right">2002.51</td>
-                                            <td align="right">0.78</td>
-                                            </tr>
-                                            <tr>
-                                            <td>2020-02-28</td>
-                                            <td>South Korea</td>
-                                            <td align="right">2337.0</td>
-                                            <td align="right">13.0</td>
-                                            <td align="right">1987.01</td>
-                                            <td align="right">-3.3</td>
-                                            </tr>
-                                            <tr>
-                                            <td>2020-02-27</td>
-                                            <td>South Korea</td>
-                                            <td align="right">1766.0</td>
-                                            <td align="right">13.0</td>
-                                            <td align="right">2054.89</td>
-                                            <td align="right">-1.05</td>
-                                            </tr>
-                                            <tr>
-                                            <td>2020-02-26</td>
-                                            <td>South Korea</td>
-                                            <td align="right">1261.0</td>
-                                            <td align="right">12.0</td>
-                                            <td align="right">2076.77</td>
-                                            <td align="right">-1.28</td>
-                                            </tr>
-                                            <tr>
-                                            <td>2020-02-25</td>
-                                            <td>South Korea</td>
-                                            <td align="right">977.0</td>
-                                            <td align="right">10.0</td>
-                                            <td align="right">2103.61</td>
-                                            <td align="right">1.18</td>
-                                            </tr>
-                                            <tr>
-                                            <td>2020-02-24</td>
-                                            <td>South Korea</td>
-                                            <td align="right">833.0</td>
-                                            <td align="right">8.0</td>
-                                            <td align="right">2079.04</td>
-                                            <td align="right">-3.87</td>
-                                            </tr>
-                                            <tr>
-                                            <td>2020-02-21</td>
-                                            <td>South Korea</td>
-                                            <td align="right">204.0</td>
-                                            <td align="right">2.0</td>
-                                            <td align="right">2162.84</td>
-                                            <td align="right">-1.49</td>
-                                            </tr>
-                                            <tr>
-                                            <td>2020-02-20</td>
-                                            <td>South Korea</td>
-                                            <td align="right">104.0</td>
-                                            <td align="right">1.0</td>
-                                            <td align="right">2195.5</td>
-                                            <td align="right">-0.67</td>
-                                            </tr>
-                                            <tr>
-                                            <td>2020-02-19</td>
-                                            <td>South Korea</td>
-                                            <td align="right">31.0</td>
-                                            <td align="right">0.0</td>
-                                            <td align="right">2210.34</td>
-                                            <td align="right">0.07</td>
-                                            </tr>
-                                            <tr>
-                                            <td>2020-02-18</td>
-                                            <td>South Korea</td>
-                                            <td align="right">31.0</td>
-                                            <td align="right">0.0</td>
-                                            <td align="right">2208.88</td>
-                                            <td align="right">-1.48</td>
-                                            </tr>
-                                            <tr>
-                                            <td>2020-02-17</td>
-                                            <td>South Korea</td>
-                                            <td align="right">30.0</td>
-                                            <td align="right">0.0</td>
-                                            <td align="right">2242.17</td>
-                                            <td align="right">-0.06</td>
-                                            </tr>
-                                            <tr>
-                                            <td>2020-02-14</td>
-                                            <td>South Korea</td>
-                                            <td align="right">28.0</td>
-                                            <td align="right">0.0</td>
-                                            <td align="right">2243.59</td>
-                                            <td align="right">0.48</td>
-                                            </tr>
-                                            <tr>
-                                            <td>2020-02-13</td>
-                                            <td>South Korea</td>
-                                            <td align="right">28.0</td>
-                                            <td align="right">0.0</td>
-                                            <td align="right">2232.96</td>
-                                            <td align="right">-0.24</td>
-                                            </tr>
-                                            <tr>
-                                            <td>2020-02-12</td>
-                                            <td>South Korea</td>
-                                            <td align="right">28.0</td>
-                                            <td align="right">0.0</td>
-                                            <td align="right">2238.38</td>
-                                            <td align="right">0.69</td>
-                                            </tr>
-                                            <tr>
-                                            <td>2020-02-11</td>
-                                            <td>South Korea</td>
-                                            <td align="right">28.0</td>
-                                            <td align="right">0.0</td>
-                                            <td align="right">2223.12</td>
-                                            <td align="right">1.0</td>
-                                            </tr>
-                                            <tr>
-                                            <td>2020-02-10</td>
-                                            <td>South Korea</td>
-                                            <td align="right">27.0</td>
-                                            <td align="right">0.0</td>
-                                            <td align="right">2201.07</td>
-                                            <td align="right">-0.49</td>
-                                            </tr>
-                                            <tr>
-                                            <td>2020-02-07</td>
-                                            <td>South Korea</td>
-                                            <td align="right">24.0</td>
-                                            <td align="right">0.0</td>
-                                            <td align="right">2211.95</td>
-                                            <td align="right">-0.72</td>
-                                            </tr>
-                                            <tr>
-                                            <td>2020-02-06</td>
-                                            <td>South Korea</td>
-                                            <td align="right">23.0</td>
-                                            <td align="right">0.0</td>
-                                            <td align="right">2227.94</td>
-                                            <td align="right">2.88</td>
-                                            </tr>
-                                            <tr>
-                                            <td>2020-02-05</td>
-                                            <td>South Korea</td>
-                                            <td align="right">19.0</td>
-                                            <td align="right">0.0</td>
-                                            <td align="right">2165.63</td>
-                                            <td align="right">0.36</td>
-                                            </tr>
-                                            <tr>
-                                            <td>2020-02-04</td>
-                                            <td>South Korea</td>
-                                            <td align="right">16.0</td>
-                                            <td align="right">0.0</td>
-                                            <td align="right">2157.9</td>
-                                            <td align="right">1.84</td>
-                                            </tr>
-                                            <tr>
-                                            <td>2020-02-03</td>
-                                            <td>South Korea</td>
-                                            <td align="right">15.0</td>
-                                            <td align="right">0.0</td>
-                                            <td align="right">2118.88</td>
-                                            <td align="right">-0.01</td>
-                                            </tr>
-                                            <tr>
-                                            <td>2020-01-31</td>
-                                            <td>South Korea</td>
-                                            <td align="right">11.0</td>
-                                            <td align="right">0.0</td>
-                                            <td align="right">2119.01</td>
-                                            <td align="right">-1.35</td>
-                                            </tr>
-                                            <tr>
-                                            <td>2020-01-30</td>
-                                            <td>South Korea</td>
-                                            <td align="right">4.0</td>
-                                            <td align="right">0.0</td>
-                                            <td align="right">2148.0</td>
-                                            <td align="right">-1.71</td>
-                                            </tr>
-                                            <tr>
-                                            <td>2020-01-29</td>
-                                            <td>South Korea</td>
-                                            <td align="right">4.0</td>
-                                            <td align="right">0.0</td>
-                                            <td align="right">2185.28</td>
-                                            <td align="right">0.39</td>
-                                            </tr>
-                                            <tr>
-                                            <td>2020-01-28</td>
-                                            <td>South Korea</td>
-                                            <td align="right">4.0</td>
-                                            <td align="right">0.0</td>
-                                            <td align="right">2176.72</td>
-                                            <td align="right">-3.09</td>
-                                            </tr>
-                                            <tr>
-                                            <td>2020-01-23</td>
-                                            <td>South Korea</td>
-                                            <td align="right">1.0</td>
-                                            <td align="right">0.0</td>
-                                            <td align="right">2246.13</td>
-                                            <td align="right">-0.93</td>
-                                            </tr>
-                                            <tr>
-                                            <td>2020-01-22</td>
-                                            <td>South Korea</td>
-                                            <td align="right">1.0</td>
-                                            <td align="right">0.0</td>
-                                            <td align="right">2267.25</td>
-                                            <td align="right">1.23</td>
-                                            </tr>
-                                            <tr>
-                                            <td>2020-01-21</td>
-                                            <td>South Korea</td>
-                                            <td align="right">0.0</td>
-                                            <td align="right">0.0</td>
-                                            <td align="right">2239.69</td>
-                                            <td align="right">-1.01</td>
-                                            </tr>
-                                            <tr>
-                                            <td>2020-01-20</td>
-                                            <td>South Korea</td>
-                                            <td align="right">0.0</td>
-                                            <td align="right">0.0</td>
-                                            <td align="right">2262.64</td>
-                                            <td align="right">0.54</td>
-                                            </tr>
-                                            <tr>
-                                            <td>2020-01-17</td>
-                                            <td>South Korea</td>
-                                            <td align="right">0.0</td>
-                                            <td align="right">0.0</td>
-                                            <td align="right">2250.57</td>
-                                            <td align="right">0.11</td>
-                                            </tr>
-                                            <tr>
-                                            <td>2020-01-16</td>
-                                            <td>South Korea</td>
-                                            <td align="right">0.0</td>
-                                            <td align="right">0.0</td>
-                                            <td align="right">2248.05</td>
-                                            <td align="right">0.77</td>
-                                            </tr>
-                                            <tr>
-                                            <td>2020-01-15</td>
-                                            <td>South Korea</td>
-                                            <td align="right">0.0</td>
-                                            <td align="right">0.0</td>
-                                            <td align="right">2230.98</td>
-                                            <td align="right">-0.35</td>
-                                            </tr>
-                                            <tr>
-                                            <td>2020-01-14</td>
-                                            <td>South Korea</td>
-                                            <td align="right">0.0</td>
-                                            <td align="right">0.0</td>
-                                            <td align="right">2238.88</td>
-                                            <td align="right">0.43</td>
-                                            </tr>
-                                            <tr>
-                                            <td>2020-01-13</td>
-                                            <td>South Korea</td>
-                                            <td align="right">0.0</td>
-                                            <td align="right">0.0</td>
-                                            <td align="right">2229.26</td>
-                                            <td align="right">1.04</td>
-                                            </tr>
-                                            <tr>
-                                            <td>2020-01-10</td>
-                                            <td>South Korea</td>
-                                            <td align="right">0.0</td>
-                                            <td align="right">0.0</td>
-                                            <td align="right">2206.39</td>
-                                            <td align="right">0.91</td>
-                                            </tr>
-                                            <tr>
-                                            <td>2020-01-09</td>
-                                            <td>South Korea</td>
-                                            <td align="right">0.0</td>
-                                            <td align="right">0.0</td>
-                                            <td align="right">2186.45</td>
-                                            <td align="right">1.63</td>
-                                            </tr>
-                                            <tr>
-                                            <td>2020-01-08</td>
-                                            <td>South Korea</td>
-                                            <td align="right">0.0</td>
-                                            <td align="right">0.0</td>
-                                            <td align="right">2151.31</td>
-                                            <td align="right">-1.11</td>
-                                            </tr>
-                                            <tr>
-                                            <td>2020-01-07</td>
-                                            <td>South Korea</td>
-                                            <td align="right">0.0</td>
-                                            <td align="right">0.0</td>
-                                            <td align="right">2175.54</td>
-                                            <td align="right">0.95</td>
-                                            </tr>
-                                            <tr>
-                                            <td>2020-01-06</td>
-                                            <td>South Korea</td>
-                                            <td align="right">0.0</td>
-                                            <td align="right">0.0</td>
-                                            <td align="right">2155.07</td>
-                                            <td align="right">-0.98</td>
-                                            </tr>
-                                            <tr>
-                                            <td>2020-01-03</td>
-                                            <td>South Korea</td>
-                                            <td align="right">0.0</td>
-                                            <td align="right">0.0</td>
-                                            <td align="right">2176.46</td>
-                                            <td align="right">0.06</td>
-                                            </tr>
-                                            <tr>
-                                            <td>2020-01-02</td>
-                                            <td>South Korea</td>
-                                            <td align="right">0.0</td>
-                                            <td align="right">0.0</td>
-                                            <td align="right">2175.17</td>
-                                            <td align="right">-1.02</td>
-                                            </tr>
-                                            <tr>
-                                            <td>2019-12-30</td>
-                                            <td>South Korea</td>
-                                            <td align="right">0.0</td>
-                                            <td align="right">0.0</td>
-                                            <td align="right">2197.67</td>
-                                            <td align="right">-0.3</td>
-                                            </tr>
-                                            <tr>
-                                            <td>2019-12-27</td>
-                                            <td>South Korea</td>
-                                            <td align="right">0.0</td>
-                                            <td align="right">0.0</td>
-                                            <td align="right">2204.21</td>
-                                            <td align="right">0.29</td>
-                                            </tr>
-                                            <tr>
-                                            <td>2019-12-26</td>
-                                            <td>South Korea</td>
-                                            <td align="right">0.0</td>
-                                            <td align="right">0.0</td>
-                                            <td align="right">2197.93</td>
-                                            <td align="right">0.36</td>
-                                            </tr>
-                                            <tr>
-                                            <td>2019-12-24</td>
-                                            <td>South Korea</td>
-                                            <td align="right">0.0</td>
-                                            <td align="right">0.0</td>
-                                            <td align="right">2190.08</td>
-                                            <td align="right">-0.62</td>
-                                            </tr>
-                                            <tr>
-                                            <td>2019-12-23</td>
-                                            <td>South Korea</td>
-                                            <td align="right">0.0</td>
-                                            <td align="right">0.0</td>
-                                            <td align="right">2203.71</td>
-                                            <td align="right">-0.02</td>
-                                            </tr>
-                                            </tbody></table>
+                                    <div id="csv_table">
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -629,13 +105,42 @@
         <script src="assets/demo/chart-area-Italy.js"></script>
         <script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js" crossorigin="anonymous"></script>
         <script src="https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap4.min.js" crossorigin="anonymous"></script>
-        <script src="assets/demo/datatables-demo.js"></script>
-        <script type="text/javascript" src="Chart.js"></script>
-        <script type="text/javascript" src="xlsx.full.min.js"></script>
-        <script type="text/javascript" src="chartjs-plugin-datasource.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.7.0/d3.min.js"></script>
         <script src="https://d3js.org/d3.v4.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
     </body>
 </html>
+
+<script>
+    $(document).ready(function(){
+      $.ajax({
+       url:"data/South Korea_Auto.csv",
+       dataType:"text",
+       success:function(data)
+       {
+        var employee_data = data.split(/\r?\n|\r/);
+        var table_data = '<table class="table table-bordered table-striped">';
+        for(var count = 0; count<employee_data.length; count++)
+        {
+         var cell_data = employee_data[count].split(",");
+         table_data += '<tr>';
+         for(var cell_count=0; cell_count<cell_data.length; cell_count++)
+         {
+          if(count === 0)
+          {
+           table_data += '<th>'+cell_data[cell_count]+'</th>';
+          }
+          else
+          {
+           table_data += '<td>'+cell_data[cell_count]+'</td>';
+          }
+         }
+         table_data += '</tr>';
+        }
+        table_data += '</table>';
+        $('#csv_table').html(table_data);
+       }
+      });    
+    });
+    </script>
