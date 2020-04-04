@@ -259,7 +259,7 @@ auto_table_list.append(event_df.sort_values('Date'))
 for i in range(len(auto_table_list)-1):
     temp = auto_table_list[i].dropna(0)
     temp.to_csv('./dashboard/dist/data/'+country_strings[i]+'_Auto.csv', index=False)
-event_df.sort_values('Date').to_csv('./dashboard/dist/'+'Events'+'_Auto.csv')
+event_df.sort_values('Date').to_csv('./dashboard/dist/data/'+'Events'+'_Auto.csv')
 
 # Rewrite sqlite database if there are new data
 if not no_update:
