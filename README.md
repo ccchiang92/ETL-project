@@ -1,10 +1,7 @@
-# {Project Name Here}
+#  ETL Coronavirus Project 
 Data base ETL project for UC Berkeley Extension Data Analytics Bootcamp
 ## Sumary
-{place holder}
-Temparary!!! Report page link !!!!
-<br/>
-https://docs.google.com/document/d/19xXDziHLFC-RZnyse5aBP2GcZgLMf9txcXBHXYI5TFI/edit
+To track the coronavirus cases in Italy, China, South Korea, and the US in the last 3 months, as well as the main stock market index for each nation on a day-by-day basis. With this data we will construct a sql relational database. With a cleaned and structured database, we can observe trends and predict future market behavior. We will also add an additional database which tracks key events during this pandemic, in the form of a timeline, and see their impact on both the market and case counts. Finally, we can compare how different countries responded, and trace the spread of the virus, as well as the change in the market, in each nation, respectively. 
 <br/>
 <br/>
 <br/>
@@ -39,3 +36,5 @@ Further details check out the report pdf
 
 
 ## Group Members
+
+Richard Wendel, Chris Chiang, Brian Perry, Akylbek 
